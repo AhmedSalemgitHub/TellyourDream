@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layoutDirection="rtl"
+    >
+    <PreferenceCategory
+        android:title="@string/main_profile_data"
+        android:textDirection="rtl">
+
+        <EditTextPreference
+            android:title="@string/settings_name_title"
+            android:key="full_name"
+            android:defaultValue="empty"
+            android:textDirection="rtl"
+            android:summary="ادخل اسمك ثلاثي"
+            android:selectAllOnFocus="true"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:title="@string/settings_age_title"
+            android:key="age"
+            android:defaultValue="empty"
+            android:summary="ادخل سنك "
+            android:textDirection="rtl"
+            android:selectAllOnFocus="true"
+            android:inputType="number"/>
+
+        <EditTextPreference
+            android:title="@string/settings_gender_title"
+            android:key="gender"
+            android:defaultValue="ذكر"
+            android:summary="ذكر او انثي"
+            android:textDirection="rtl"
+            android:selectAllOnFocus="true"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:title="@string/settings_marriage_title"
+            android:key="marriage"
+            android:defaultValue="empty"
+            android:textDirection="rtl"
+            android:selectAllOnFocus="true"
+            android:summary="اختار :
+متزوج - اعزب - مطلق - ارمل"
+            android:inputType="text"/>
+
+        <EditTextPreference
+            android:title="@string/settings_private_title"
+            android:key="private"
+            android:defaultValue="عادي"
+            android:summary="@string/privacy_summery"
+            android:textDirection="rtl"
+            android:selectAllOnFocus="true"
+            android:inputType="text"/>
+
+
+    </PreferenceCategory>
+</PreferenceScreen>

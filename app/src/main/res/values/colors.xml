@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#a1acff</color>
+    <color name="colorPrimaryDark">#364dfd</color>
+    <color name="colorAccent">#f112d3</color>
+
+    <!-- Strings related to login -->
+    <color name="dreamPageBackGround">#ffbb00</color>
+
+
+
+</resources>

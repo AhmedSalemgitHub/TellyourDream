@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/add_dream_menu"
+        android:title="@string/add_dream"
+        app:showAsAction="always"/>
+
+    <item
+    android:id="@+id/Profile_menu"
+    android:title="@string/my_profile"/>
+
+    <item
+        android:id="@+id/my_dreams"
+        android:title="@string/my_dreams"/>
+
+    <item
+        android:id="@+id/my_how_to_use"
+        android:title="@string/how_to_use"/>
+
+    <item
+        android:id="@+id/Log_out_menu"
+        android:title="@string/log_out" />
+</menu>

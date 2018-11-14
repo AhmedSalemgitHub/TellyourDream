@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "1041812371601",
+    "firebase_url": "https://fsr7lmk.firebaseio.com",
+    "project_id": "fsr7lmk",
+    "storage_bucket": "fsr7lmk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1041812371601:android:f8d9e21443037f44",
+        "android_client_info": {
+          "package_name": "com.tellyourdream.tellyourdream"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1041812371601-r2g9gg9te6j5i5hga94i5q7vudsj6p1r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_v0RjN30zbZVmWS-JfZwNFwHyP6QoczE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

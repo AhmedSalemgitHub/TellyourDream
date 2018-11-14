@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">تفسير الاحلام</string>
+    <string name="title_activity_login">تسجيل دخول</string>
+    <string name="prompt_email">بريد الكتروني</string>
+    <string name="prompt_password">كلمة السر</string>
+    <string name="action_sign_in">تسجيل الدخول</string>
+    <string name="action_sign_in_short">تسجيل دخول</string>
+    <string name="error_invalid_email">البريد الالكتروني غير صحيح</string>
+    <string name="error_invalid_password">كلمة السر قصيرة جدا</string>
+    <string name="error_incorrect_password">كلمة السر غير صحيحه</string>
+    <string name="error_field_required">هذا الحقل اساسي</string>
+    <string name="permission_rationale">لاكمال البريد الالكتروني . نحتاج تصريح لاستخدام جهات الاتصال</string>
+    <string name="dreamer">صاحب الحلم</string>
+    <string name="dream_details">تفاصيل الحلم</string>
+    <string name="add_your_name">"اسمك "</string>
+    <string name="add_your_dream_details">اضف تفاصيل الحلم</string>
+    <string name="send">ارسال</string>
+    <string name="add_dream">اضافة حلم</string>
+    <string name="my_profile">بياناتي</string>
+    <string name="log_out">تسجيل خروج</string>
+    <string name="title_activity_settings">بياناتي</string>
+    <string name="edit">تعديل</string>
+    <string name="main_profile_data">البيانات الاساسية</string>
+
+
+    <!--Settings Screen-->
+    <string name="settings_name_title">الاسم كامل</string>
+    <string name="settings_name_key" translatable="false">fullname</string>
+    <string name="settings_name_default" translatable="false">empty</string>
+
+    <string name="settings_age_title">السن</string>
+    <string name="settings_age_key" translatable="false">fullname</string>
+    <string name="settings_age_default" translatable="false">empty</string>
+
+    <string name="settings_gender_title">النوع</string>
+    <string name="settings_gender_key" translatable="false">fullname</string>
+    <string name="settings_gender_default" translatable="false">empty</string>
+
+    <string name="settings_marriage_title">الحالة الاجتماعية</string>
+    <string name="settings_marriage_key" translatable="false">fullname</string>
+    <string name="settings_marriage_default" translatable="false">empty</string>
+
+    <string name="settings_private_title">الخصوصية</string>
+    <string name="settings_private_key" translatable="false">fullname</string>
+    <string name="settings_private_default" translatable="false">empty</string>
+    <string name="error_no_data" translatable="false">  يجب استكمال بياناتك اولا في الاعدادات</string>
+    <string name="privacy_summery" translatable="false">اختار خاص او عادي</string>
+    <string name="delete_dream" translatable="false">حذف</string>
+    <string name="my_dreams" translatable="false">احلامي</string>
+    <string name="how_to_use" translatable="false">كيفية الاستخدام</string>
+    <string name="log_in_description" translatable="false">عند بداية البرنامج يجب ان تقوم بتسجيل الدخول حتي تتمكن من استخدام البرنامج</string>
+    <string name="log_in_screen_content_desc" translatable="false">log in screen</string>
+    <string name="main_screen_screen_content_desc" translatable="false">main screen pic</string>
+    <string name="main_screen_description" translatable="false">بعد ظهور الشاشة الاساسية ستتمكن من عرض كل الاخلام السابقة وستتمكن من فتح اي حلم ومشاهدة تفسيره. كذلك ستتمكن من اضافة الحلم الخاص بك عند الضغط علي زر اضافة حلم في الاعلي . ولكن قبل ان تتمكن من الاضافة فعليك ان تقوم بملء بياناتك اولا</string>
+    <string name="menu_pic" translatable="false">menu picture</string>
+    <string name="menu_in_description" translatable="false">عند الضغط علي القائمة بجوار زر الاضافه ستتمكن من ادخال بياناتك والتعديل عليها. وكذلك ستتمكن من اختيار ظهور احلامك فقط التي قمت بادخالها سابقا . وستتمكن ايضا من تسجيل الخروج .</string>
+
+</resources>
