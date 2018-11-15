@@ -222,44 +222,44 @@ public class Dream extends AppCompatActivity {
     }
 
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.dream_screen_menu, menu);
-        MenuItem deleteButton = menu.findItem(R.id.delete_dream_menu);
-        if(userEmail.equals(MainActivity.mEmail)){
-            deleteButton.setVisible(true);
-        }
-        return true;
-    }
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        MenuInflater inflater = getMenuInflater();
+//        inflater.inflate(R.menu.dream_screen_menu, menu);
+//        MenuItem deleteButton = menu.findItem(R.id.delete_dream_menu);
+//        if(userEmail.equals(MainActivity.mEmail)){
+//            deleteButton.setVisible(true);
+//        }
+//        return true;
+//    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-        alert.setTitle("حذف");
-        alert.setMessage("هل انت متاكد انك تريد حذف هذا الحلم")
-                .setCancelable(false)
-                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        DatabaseReference DB = FirebaseDatabase.getInstance().getReference("dream").child(parentKey);
-                        DB.removeValue();
-                        willBeClosed = true;
-                        finish();
-                    }
-                    // return true;
-                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        AlertDialog alerton = alert.create();
-        alerton.show();
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+//        alert.setTitle("حذف");
+//        alert.setMessage("هل انت متاكد انك تريد حذف هذا الحلم")
+//                .setCancelable(false)
+//                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialog, int which) {
+//                        DatabaseReference DB = FirebaseDatabase.getInstance().getReference("dream").child(parentKey);
+//                        DB.removeValue();
+//                        willBeClosed = true;
+//                        finish();
+//                    }
+//                    // return true;
+//                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int which) {
+//                dialog.cancel();
+//            }
+//        });
+//
+//        AlertDialog alerton = alert.create();
+//        alerton.show();
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
     @Override
     protected void onPause() {

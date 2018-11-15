@@ -360,10 +360,12 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+                return true;
 
             case R.id.my_how_to_use:
                 Intent howTo = new Intent(MainActivity.this, how_to.class);
                 startActivity(howTo);
+
                 default:
                     return super.onOptionsItemSelected(item);
         }
