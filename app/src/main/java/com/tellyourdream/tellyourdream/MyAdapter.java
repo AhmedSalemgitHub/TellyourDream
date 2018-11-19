@@ -1,6 +1,7 @@
 package com.tellyourdream.tellyourdream;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,15 @@ public class MyAdapter extends ArrayAdapter<myDreamItems> {
         TextView replyOrNot =
                 dreamItem.findViewById(R.id.dream_reply_status_textView);
         replyOrNot.setText(currentDream.getReplystatus());
+        if (currentDream.getReplystatus().equals("مفسر")) {
+            replyOrNot.setTextColor(Color.parseColor("#137613"));
+        } else {
+            replyOrNot.setTextColor(Color.parseColor("#FFFF0000"));
+        }
+
+        TextView dram_part =
+                dreamItem.findViewById(R.id.dream_part_textView);
+        dram_part.setText(currentDream.getDreamDetails());
 
 
 

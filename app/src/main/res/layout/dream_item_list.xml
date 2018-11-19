@@ -1,52 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dream_list_items"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:textDirection="rtl"
     android:layout_margin="8dp"
-    android:background="#fff"
-    android:padding="8dp">
+    android:background="#f7d7fa"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:textDirection="rtl">
 
     <TextView
         android:id="@+id/item_dream_owner_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="4dp"
-        android:textColor="#000"
+        android:layout_marginEnd="8dp"
+        android:textColor="@color/user_name_color"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Ahmed Salem" />
 
     <TextView
         android:id="@+id/item_dream_date_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_margin="8dp"
-        android:layout_below="@id/item_dream_owner_textView"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/red"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dream_part_textView"
         tools:text="22-09-2018" />
 
     <TextView
         android:id="@+id/dream_reply_status_textView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_below="@+id/item_dream_owner_textView"
-        android:layout_toStartOf="@+id/item_dream_date_textView"
-        tools:text="done" />
+        android:layout_marginEnd="8dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dream_part_textView"
+        tools:text="مفسر" />
+
+    <TextView
+        android:id="@+id/dream_part_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:maxLength="70"
+        android:maxLines="1"
+        android:text="test test test test test test test test test test test test test test test test test "
+        android:textColor="#ac9e9e"
+        android:textDirection="rtl"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_dream_owner_textView" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_dream_owner_textView"
+        app:srcCompat="@android:drawable/sym_action_chat" />
 
 
-
-
-
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

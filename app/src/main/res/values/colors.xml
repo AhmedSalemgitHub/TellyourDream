@@ -6,7 +6,9 @@
 
     <!-- Strings related to login -->
     <color name="dreamPageBackGround">#ffbb00</color>
-
+    <color name="user_name_color">#001aff</color>
+    <color name="green">#137613</color>
+    <color name="red">#a91b1b</color>
 
 
 </resources>
