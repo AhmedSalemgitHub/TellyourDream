@@ -142,9 +142,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         String openstatus = dataSnapshot.getValue().toString();
 
-                        if (openstatus.equals("مفتوح")){
-                            Toast.makeText(MainActivity.this,"هذا الحلم مفتوح من احد المفسرين",Toast.LENGTH_LONG).show();
-                         }else {
+                        if (openstatus.equals("مفتوح")) {
+                            Toast.makeText(MainActivity.this, "هذا الحلم مفتوح من احد المفسرين", Toast.LENGTH_LONG).show();
+                        } else {
                             Intent openDream = new Intent(MainActivity.this, Dream.class);
 
                             openDream.putExtra("owner", currentSelected.getOwner());

@@ -55,5 +55,8 @@
     <string name="main_screen_description" translatable="false">بعد ظهور الشاشة الاساسية ستتمكن من عرض كل الاخلام السابقة وستتمكن من فتح اي حلم ومشاهدة تفسيره. كذلك ستتمكن من اضافة الحلم الخاص بك عند الضغط علي زر اضافة حلم في الاعلي . ولكن قبل ان تتمكن من الاضافة فعليك ان تقوم بملء بياناتك اولا</string>
     <string name="menu_pic" translatable="false">menu picture</string>
     <string name="menu_in_description" translatable="false">عند الضغط علي القائمة بجوار زر الاضافه ستتمكن من ادخال بياناتك والتعديل عليها. وكذلك ستتمكن من اختيار ظهور احلامك فقط التي قمت بادخالها سابقا . وستتمكن ايضا من تسجيل الخروج .</string>
+    <string name="amend_dream" translatable="false">اضافة تعديل علي الحلم</string>
+    <string name="adUnitID_Test" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="adUnitID" translatable="false">ca-app-pub-9623051881176641/1001341939</string>
 
 </resources>

@@ -1,6 +1,7 @@
 package com.tellyourdream.tellyourdream;
 
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.annotation.NonNull;
@@ -56,6 +57,7 @@ public class Dream extends AppCompatActivity {
 
     EditText ownerEditText;
     EditText dreamEditText;
+    EditText dreamEditEditText;
     TextView translation;
 
 
@@ -78,13 +80,12 @@ public class Dream extends AppCompatActivity {
 
         ownerEditText = findViewById(R.id.owner_edit_view);
         dreamEditText = findViewById(R.id.dream_edit_view);
+        dreamEditEditText = findViewById(R.id.etDreamEdit);
         translation = findViewById(R.id.translation_text_view);
+
 
         send_button = findViewById(R.id.button_send);
         edit_button = findViewById(R.id.button_edit);
-
-
-
 
 
         String transferedprivacy = getIntent().getStringExtra("privacy");
@@ -151,17 +152,20 @@ public class Dream extends AppCompatActivity {
                 {
                     ownerEditText.setEnabled(false);
                     send_button.setVisibility(View.GONE);
-                    dreamEditText.setEnabled(true);
+                    dreamEditEditText.setVisibility(View.VISIBLE);
+                    dreamEditText.setEnabled(false);
                     edit_button.setVisibility(View.VISIBLE);
 
 
                 }else{ // normal view without buttons
                     send_button.setVisibility(View.INVISIBLE);
                     edit_button.setVisibility(View.INVISIBLE);
+                    dreamEditEditText.setVisibility(View.GONE);
                 }
             } else { //add mode
                 ownerEditText.setEnabled(false);
                 dreamEditText.setEnabled(true);
+                dreamEditEditText.setVisibility(View.GONE);
                 send_button.setVisibility(View.VISIBLE);
                 edit_button.setVisibility(View.INVISIBLE);
             }
@@ -173,7 +177,7 @@ public class Dream extends AppCompatActivity {
 
                 dream = dreamEditText.getText().toString();
                 Calendar calendar = Calendar.getInstance();
-                SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMM-yyyy");
+                @SuppressLint("SimpleDateFormat") SimpleDateFormat currentDate = new SimpleDateFormat("dd-MMM-yyyy", Locale.US);
                 /*need to test it on api23*/
                 dreamDate = currentDate.format(calendar.getTime());
 
@@ -197,7 +201,9 @@ public class Dream extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                dream = dreamEditText.getText().toString();
+                dream = dreamEditText.getText().toString() + "\n"
+                        + "تعديل:" + "\n"
+                        + dreamEditEditText.getText().toString();
                 editButtonClicked = true;
 
 
