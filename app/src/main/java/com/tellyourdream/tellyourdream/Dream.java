@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,6 +21,8 @@ import android.widget.Toast;
 
 
 import com.firebase.ui.auth.AuthUI;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -64,6 +67,8 @@ public class Dream extends AppCompatActivity {
     Button send_button;
     Button edit_button;
 
+    private AdView mAdView;
+
     private FirebaseDatabase mFirebaseDataBase;
     private DatabaseReference mMessageDataBaseReference;
 
@@ -73,6 +78,12 @@ public class Dream extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dream);
+
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         mFirebaseDataBase = FirebaseDatabase.getInstance();
         mMessageDataBaseReference = mFirebaseDataBase.getReference().child("dream");
@@ -270,6 +281,11 @@ public class Dream extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
+
+        if (mAdView != null) {
+            mAdView.pause();
+        }
+
         if(parentKey!= null){
             if(!editButtonClicked){
                 if (!willBeClosed){
@@ -282,5 +298,20 @@ public class Dream extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mAdView != null) {
+            mAdView.resume();
+        }
+    }
+
+    @Override
+    public void onDestroy() {
+        if (mAdView != null) {
+            mAdView.destroy();
+        }
+        super.onDestroy();
+    }
 
 }

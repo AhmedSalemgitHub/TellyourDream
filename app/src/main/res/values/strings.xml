@@ -58,5 +58,7 @@
     <string name="amend_dream" translatable="false">اضافة تعديل علي الحلم</string>
     <string name="adUnitID_Test" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
     <string name="adUnitID" translatable="false">ca-app-pub-9623051881176641/1001341939</string>
+    <string name="label_tafseer" translatable="false">التفسير</string>
+    <string name="no_reply" translatable="false">لم يتم الرد</string>
 
 </resources>

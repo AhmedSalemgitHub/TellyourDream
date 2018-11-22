@@ -5,6 +5,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.os.Parcelable;
+import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -41,9 +43,9 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "test";
+
     //for the sharedpreferences
     static SharedPreferences mPreferences;
-
 
 
     /* initialize variables */
@@ -71,34 +73,22 @@ public class MainActivity extends AppCompatActivity {
     /*settings variables*/
     private String setting_name, setting_age, setting_gender, setting_marital, setting_privacy;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
+
         mFirebaseDataBase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         mMessageDataBaseReference = mFirebaseDataBase.getReference().child("dream");
 
         query = mMessageDataBaseReference.orderByChild("ownerEmail").equalTo(mEmail);
-
-        //get the data from the setting screen
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        setting_name = mPreferences.getString("full_name","");
-        setting_age = mPreferences.getString("age","");
-        setting_gender = mPreferences.getString("gender","");
-        setting_marital = mPreferences.getString("marriage","");
-        setting_privacy = mPreferences.getString("private","");
-
-
-        // Initialize message ListView and its adapter
-        mainDreamList = new ArrayList<myDreamItems>();
-        adapter = new MyAdapter(this, mainDreamList);
-        attachedDataBaseReadListener();
-
-        listView = findViewById(R.id.list);
-        listView.setAdapter(adapter);
 
         mAuthStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -115,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     // Choose authentication providers
                     List<AuthUI.IdpConfig> providers = Arrays.asList(
                             new AuthUI.IdpConfig.EmailBuilder().build()
+
                     );
                     // Create and launch sign-in intent
                     startActivityForResult(
@@ -126,8 +117,31 @@ public class MainActivity extends AppCompatActivity {
                                     .build(),
                             RC_SIGN_IN);
                 }
-        }
-    };
+            }
+        };
+
+        //get the data from the setting screen
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        setting_name = mPreferences.getString("full_name","");
+        setting_age = mPreferences.getString("age","");
+        setting_gender = mPreferences.getString("gender","");
+        setting_marital = mPreferences.getString("marriage","");
+        setting_privacy = mPreferences.getString("private","");
+
+
+        // Initialize message ListView and its adapter
+        mainDreamList = new ArrayList<myDreamItems>();
+        Log.i("saving","array list created");
+        adapter = new MyAdapter(this, mainDreamList);
+        Log.i("saving","adapter created and array pluged");
+        attachedDataBaseReadListener();
+        Log.i("saving","attach listener finished");
+
+        listView = findViewById(R.id.list);
+        Log.i("saving","list view attached to xml");
+        listView.setAdapter(adapter);
+        Log.i("saving","adapter assigned");
+
 
         /*open the dreams from the list */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -174,12 +188,6 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-
-
-
-
-
-
             }
         });
     }
@@ -214,8 +222,6 @@ public class MainActivity extends AppCompatActivity {
                     dreams.setParentKey(dataSnapshot.getRef().getKey().toString());
                     mainDreamList.add(dreams);
                     adapter.notifyDataSetChanged();
-                    Log.i(TAG,"looping the data");
-
                 }
 
                 @Override
@@ -247,10 +253,12 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
             mMessageDataBaseReference.addChildEventListener(mChiledEventListener);
+
         }
     }
 
     private void detachedDataBaseReadListener() {
+        listView.onSaveInstanceState();
         adapter.clear();
         Log.i("test", "detached data base listener");
         if (mChiledEventListener != null) {
@@ -270,6 +278,7 @@ public class MainActivity extends AppCompatActivity {
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
         mFirebaseAuth.addAuthStateListener(mAuthStateListener);
+
         //attachedDataBaseReadListener();
     }
 
@@ -398,5 +407,11 @@ public class MainActivity extends AppCompatActivity {
         adapter.clear();
         Log.i("test", "adapter cleaned");
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
 
 }
