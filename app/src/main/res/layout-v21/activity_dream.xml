@@ -24,7 +24,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             ads:adSize="BANNER"
-            ads:adUnitId="@string/adUnitID_Test"
+            ads:adUnitId="@string/BannerUnitID_dev"
             ads:layout_constraintEnd_toEndOf="parent"
             ads:layout_constraintStart_toStartOf="parent"
             ads:layout_constraintTop_toTopOf="parent" />

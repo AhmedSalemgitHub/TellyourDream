@@ -5,8 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.os.Parcelable;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -63,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
     public static DatabaseReference mMessageDataBaseReference;
     Query query;
 
-    /* initialize fire base variables */
-    private FirebaseDatabase mFirebaseDataBase;
     private FirebaseAuth mFirebaseAuth;
     private FirebaseAuth.AuthStateListener mAuthStateListener;
     private ChildEventListener mChiledEventListener;
@@ -84,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        mFirebaseDataBase = FirebaseDatabase.getInstance();
+        /* initialize fire base variables */
+        FirebaseDatabase mFirebaseDataBase = FirebaseDatabase.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         mMessageDataBaseReference = mFirebaseDataBase.getReference().child("dream");
 

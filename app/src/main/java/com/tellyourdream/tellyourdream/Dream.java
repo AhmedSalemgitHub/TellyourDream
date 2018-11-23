@@ -2,38 +2,24 @@ package com.tellyourdream.tellyourdream;
 
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
-
-
-import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Map;
+
 
 
 public class Dream extends AppCompatActivity {
@@ -69,7 +55,6 @@ public class Dream extends AppCompatActivity {
 
     private AdView mAdView;
 
-    private FirebaseDatabase mFirebaseDataBase;
     private DatabaseReference mMessageDataBaseReference;
 
     boolean willBeClosed = false;
@@ -81,11 +66,13 @@ public class Dream extends AppCompatActivity {
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+        MobileAds.initialize(this,getString(R.string.adUnitID_dev));
+
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
 
-        mFirebaseDataBase = FirebaseDatabase.getInstance();
+        FirebaseDatabase mFirebaseDataBase = FirebaseDatabase.getInstance();
         mMessageDataBaseReference = mFirebaseDataBase.getReference().child("dream");
 
 
@@ -150,10 +137,7 @@ public class Dream extends AppCompatActivity {
         }
 
         parentKey = getIntent().getStringExtra("parent");
-        if(parentKey != null)
-        {
 
-        }
         String form_mode = getIntent().getStringExtra("mode");
         if (form_mode != null) {
             current_mode = form_mode;
