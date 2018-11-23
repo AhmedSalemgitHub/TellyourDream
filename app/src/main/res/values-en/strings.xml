@@ -37,5 +37,6 @@
 
     <string name="settings_private_title">private</string>
 
-
+    <string name="adUnitID_owner">ca-app-pub-9623051881176641~4800656578</string>
+    <string name="BannerUnitID_owner">ca-app-pub-9623051881176641/3236293461</string>
 </resources>

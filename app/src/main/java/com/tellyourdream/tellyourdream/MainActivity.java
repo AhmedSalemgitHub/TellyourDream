@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.app.AlertDialog;
 
@@ -34,6 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -41,6 +43,8 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "test";
+
+    int selectdPosition ;
 
     //for the sharedpreferences
     static SharedPreferences mPreferences;
@@ -77,8 +81,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
+        if (savedInstanceState != null)
+        {
+            selectdPosition =  savedInstanceState.getInt("listPosition");
+        }
 
         /* initialize fire base variables */
         FirebaseDatabase mFirebaseDataBase = FirebaseDatabase.getInstance();
@@ -128,23 +134,21 @@ public class MainActivity extends AppCompatActivity {
 
         // Initialize message ListView and its adapter
         mainDreamList = new ArrayList<myDreamItems>();
-        Log.i("saving","array list created");
+
         adapter = new MyAdapter(this, mainDreamList);
-        Log.i("saving","adapter created and array pluged");
         attachedDataBaseReadListener();
-        Log.i("saving","attach listener finished");
 
         listView = findViewById(R.id.list);
-        Log.i("saving","list view attached to xml");
         listView.setAdapter(adapter);
-        Log.i("saving","adapter assigned");
 
+        listView.smoothScrollToPosition(selectdPosition);
 
         /*open the dreams from the list */
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                selectdPosition = position;
                 final myDreamItems currentSelected = mainDreamList.get(position);
                 DatabaseReference CurrentKey = mMessageDataBaseReference.child(currentSelected.getParentKey()).child("openedstatus");
 
@@ -217,8 +221,9 @@ public class MainActivity extends AppCompatActivity {
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                     myDreamItems dreams = dataSnapshot.getValue(myDreamItems.class);
                     dreams.setParentKey(dataSnapshot.getRef().getKey().toString());
-                    mainDreamList.add(dreams);
+                    mainDreamList.add(0,dreams);
                     adapter.notifyDataSetChanged();
+                    listView.setSelection(selectdPosition);
                 }
 
                 @Override
@@ -249,6 +254,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }
             };
+
             mMessageDataBaseReference.addChildEventListener(mChiledEventListener);
 
         }
@@ -408,7 +414,17 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("listPosition",listView.getSelectedItemPosition());
+    }
 
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
 }

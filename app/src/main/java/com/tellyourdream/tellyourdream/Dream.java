@@ -66,7 +66,7 @@ public class Dream extends AppCompatActivity {
 
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
-        MobileAds.initialize(this,getString(R.string.adUnitID_owner));
+        MobileAds.initialize(this,"ca-app-pub-9623051881176641~4800656578");
 
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
