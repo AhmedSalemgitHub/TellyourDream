@@ -56,11 +56,8 @@
     <string name="menu_pic" translatable="false">menu picture</string>
     <string name="menu_in_description" translatable="false">عند الضغط علي القائمة بجوار زر الاضافه ستتمكن من ادخال بياناتك والتعديل عليها. وكذلك ستتمكن من اختيار ظهور احلامك فقط التي قمت بادخالها سابقا . وستتمكن ايضا من تسجيل الخروج .</string>
     <string name="amend_dream" translatable="false">اضافة تعديل علي الحلم</string>
-    <string name="adUnitID_Test" translatable="false">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="adUnitID_owner" translatable="false">ca-app-pub-9623051881176641/1001341939</string>
-    <string name="adUnitID_dev" translatable="false">ca-app-pub-2556925527469330~9268716321</string>
-    <string name="BannerUnitID_dev" translatable="false">ca-app-pub-2556925527469330/7331574854</string>
-    <string name="BannerUnitID_owner" translatable="false"></string>
+    <string name="adUnitID_owner" translatable="false">ca-app-pub-9623051881176641~4800656578</string>
+    <string name="BannerUnitID_owner" translatable="false">ca-app-pub-9623051881176641/3236293461</string>
     <string name="label_tafseer" translatable="false">التفسير</string>
     <string name="no_reply" translatable="false">لم يتم الرد</string>
 
