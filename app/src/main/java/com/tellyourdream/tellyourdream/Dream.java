@@ -2,9 +2,14 @@ package com.tellyourdream.tellyourdream;
 
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -15,13 +20,15 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.IgnoreExtraProperties;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
 
-
+@IgnoreExtraProperties
 public class Dream extends AppCompatActivity {
 
 
@@ -223,44 +230,44 @@ public class Dream extends AppCompatActivity {
     }
 
 
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        MenuInflater inflater = getMenuInflater();
-//        inflater.inflate(R.menu.dream_screen_menu, menu);
-//        MenuItem deleteButton = menu.findItem(R.id.delete_dream_menu);
-//        if(userEmail.equals(MainActivity.mEmail)){
-//            deleteButton.setVisible(true);
-//        }
-//        return true;
-//    }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.dream_screen_menu, menu);
+        MenuItem deleteButton = menu.findItem(R.id.delete_dream_menu);
+        if(userEmail.equals(MainActivity.mEmail)){
+            deleteButton.setVisible(true);
+        }
+        return true;
+    }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//
-//        AlertDialog.Builder alert = new AlertDialog.Builder(this);
-//        alert.setTitle("حذف");
-//        alert.setMessage("هل انت متاكد انك تريد حذف هذا الحلم")
-//                .setCancelable(false)
-//                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        DatabaseReference DB = FirebaseDatabase.getInstance().getReference("dream").child(parentKey);
-//                        DB.removeValue();
-//                        willBeClosed = true;
-//                        finish();
-//                    }
-//                    // return true;
-//                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-//                dialog.cancel();
-//            }
-//        });
-//
-//        AlertDialog alerton = alert.create();
-//        alerton.show();
-//
-//        return super.onOptionsItemSelected(item);
-//    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle("حذف");
+        alert.setMessage("هل انت متاكد انك تريد حذف هذا الحلم")
+                .setCancelable(false)
+                .setPositiveButton("yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DatabaseReference DB = FirebaseDatabase.getInstance().getReference("dream").child(parentKey);
+                        DB.removeValue();
+                        willBeClosed = true;
+                        finish();
+                    }
+                    // return true;
+                }).setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        AlertDialog alerton = alert.create();
+        alerton.show();
+
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     protected void onPause() {
